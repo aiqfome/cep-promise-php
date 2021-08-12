@@ -16,7 +16,7 @@ class WideNetService implements CepServiceInterface
             'cache-control' => 'no-cache',
         ];
         $client = new Client();
-        $request = new Request('GET', 'https://cep.widenet.host/busca-cep/api/cep/'.$cep.'.json', $headers);
+        $request = new Request('GET', 'https://ws.apicep.com/busca-cep/api/cep/'.$cep.'.json', $headers);
         $response = $client->send($request);
         $response = $response->getBody()->getContents();
         $response = json_decode($response);
