@@ -3,7 +3,8 @@
     "description": "Cópia do projeto filipedeschamps/cep-promise, porém em PHP. A idéia não é copiar fielmente a implementação, mas a funcionalidade afim de praticar apenas.",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^6.5"
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^6.5|^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9"
