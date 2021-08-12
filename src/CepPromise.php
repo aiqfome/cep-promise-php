@@ -10,7 +10,7 @@ use Andersonef\CepPromise\Services\CorreiosService;
 use Andersonef\CepPromise\Services\ViaCepService;
 use Andersonef\CepPromise\Services\WideNetService;
 use GuzzleHttp\Promise\Promise;
-use function GuzzleHttp\Promise\any;
+use GuzzleHttp\Promise\Utils;
 
 class CepPromise
 {
@@ -35,8 +35,8 @@ class CepPromise
         $this->cepValidator = $cepValidator ?? new CepValidator();
         $this->cepServices = (count($cepServices) > 0) ? $cepServices : [
             new CorreiosService(),
-           // new ViaCepService(),
-         //   new WideNetService(),
+            new ViaCepService(),
+            new WideNetService(),
         ];
     }
 
@@ -86,7 +86,7 @@ class CepPromise
             });
         }
 
-        return any($promises)
+        return Utils::any($promises)
             ->then(function ($response) {
                 return $response;
             }, function ($error) {
